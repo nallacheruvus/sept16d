@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="adiv"
+      style="background-color: black; color: yellow; font-size: x-large"
+    ></div>
+    <div id="bdiv"></div>
+    <div id="cdiv"></div>
+    <script>
+      async function tDisp() {
+        let prom = new Promise((res, rej) => {
+          setTimeout(() => {
+            res("This is from promise inside an async function");
+          }, 5000);
+        });
+        document.getElementById("adiv").innerHTML = await prom;
+      }
+      tDisp();
+      function ffa() {
+        return "Who Finds A Friend Finds A Treasure";
+      }
+      async function ffb() {
+        //const t = ffa();
+        let prom = new Promise((res, rej) => {
+          setTimeout(() => {
+            res(ffa());
+          }, 5000);
+        });
+        document.getElementById("bdiv").innerHTML = await prom;
+        const promj = new Promise((res, rej) => {
+          res(ffc());
+        });
+        document.getElementById("cdiv").innerHTML = await promj;
+      }
+      ffb();
+      const ffc = async function () {
+        return "Barthelmew";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="adiv"></div>
+
+    <script>
+      fetch("https://jsonplaceholder.typicode.com/todos/2")
+        .then((a) => a.json())
+        .then(
+          (b) => (document.getElementById("adiv").innerHTML = JSON.stringify(b))
+        );
+    </script>
+  </body>
+</html>
